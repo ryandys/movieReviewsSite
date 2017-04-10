@@ -43,7 +43,7 @@
 
 		<div class="small-12 medium-2 columns">
 			<div id="moviesIcon">
-				<img data-toggle="offCanvas" data-interchange="[images/moviesIcon.png, small], [images/moviesIcon.svg, retina]" alt="movies icon" id="moviesIconImg">
+				<img data-toggle="offCanvas" src="images/movie_reel_icon.svg" alt="reel icon" id="moviesIconImg">
 			</div>
 		</div>
 

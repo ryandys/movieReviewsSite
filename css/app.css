@@ -92,6 +92,17 @@
 	padding: 10px;
 }
 
+#moviesIconImg {
+	max-width: 50px;
+	cursor: pointer;
+	transition: .3s ease-in-out all;
+	margin-top: 10px;
+}
+
+#moviesIconImg:hover {
+	opacity: .7;
+}
+
 .filterNav {
 	margin: 0;
 	padding: 10px 0px;
