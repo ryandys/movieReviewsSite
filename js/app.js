@@ -1,6 +1,0 @@
-$(document).foundation();
-(function() {
-	
-	
-
-})();
