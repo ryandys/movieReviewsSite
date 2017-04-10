@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.10
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 10, 2017 at 03:59 PM
--- Server version: 5.5.42
--- PHP Version: 5.6.10
+-- Generation Time: Apr 10, 2017 at 05:33 PM
+-- Server version: 5.6.28
+-- PHP Version: 7.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE tbl_cast (
-  cast_id smallint(4) unsigned NOT NULL,
+  cast_id smallint(4) UNSIGNED NOT NULL,
   cast_fname varchar(75) NOT NULL,
   cast_lname varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -91,7 +91,7 @@ INSERT INTO tbl_cast (cast_id, cast_fname, cast_lname) VALUES
 (52, 'Julie', 'Andrews'),
 (53, 'Will', 'Arnett'),
 (54, 'Kristen', 'Wiig'),
-(55, 'Catherine', 'O''Hara'),
+(55, 'Catherine', 'O\'Hara'),
 (56, 'Martin', 'Short'),
 (57, 'Martin', 'Landau'),
 (58, 'Charlie', 'Tahan'),
@@ -211,7 +211,7 @@ INSERT INTO tbl_cast (cast_id, cast_fname, cast_lname) VALUES
 --
 
 CREATE TABLE tbl_cat (
-  cat_id smallint(4) unsigned NOT NULL,
+  cat_id smallint(4) UNSIGNED NOT NULL,
   cat_name varchar(30) NOT NULL,
   cat_desc varchar(245) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -233,7 +233,7 @@ INSERT INTO tbl_cat (cat_id, cat_name, cat_desc) VALUES
 --
 
 CREATE TABLE tbl_director (
-  dir_id smallint(4) unsigned NOT NULL,
+  dir_id smallint(4) UNSIGNED NOT NULL,
   dir_fname varchar(75) NOT NULL,
   dir_lname varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -282,7 +282,7 @@ INSERT INTO tbl_director (dir_id, dir_fname, dir_lname) VALUES
 --
 
 CREATE TABLE tbl_l_mc (
-  mc_id smallint(4) unsigned NOT NULL,
+  mc_id smallint(4) UNSIGNED NOT NULL,
   movies_id smallint(4) NOT NULL,
   cat_id smallint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -298,9 +298,9 @@ INSERT INTO tbl_l_mc (mc_id, movies_id, cat_id) VALUES
 (11, 4, 4),
 (12, 5, 4),
 (13, 6, 4),
-(14, 7, 4),
+(14, 7, 1),
 (15, 8, 3),
-(16, 9, 3),
+(16, 9, 2),
 (17, 10, 3);
 
 -- --------------------------------------------------------
@@ -310,7 +310,7 @@ INSERT INTO tbl_l_mc (mc_id, movies_id, cat_id) VALUES
 --
 
 CREATE TABLE tbl_l_md (
-  md_id smallint(4) unsigned NOT NULL,
+  md_id smallint(4) UNSIGNED NOT NULL,
   movies_id smallint(4) NOT NULL,
   dir_id smallint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -332,7 +332,7 @@ INSERT INTO tbl_l_md (md_id, movies_id, dir_id) VALUES
 --
 
 CREATE TABLE tbl_movies (
-  movies_id smallint(4) unsigned NOT NULL,
+  movies_id smallint(4) UNSIGNED NOT NULL,
   movies_thumb varchar(50) NOT NULL DEFAULT 'noThumb.jpg',
   movies_fimg varchar(50) NOT NULL DEFAULT 'nofImg.jpg',
   movies_bimg varchar(50) NOT NULL DEFAULT 'nobImg.jpg',
@@ -349,16 +349,16 @@ CREATE TABLE tbl_movies (
 --
 
 INSERT INTO tbl_movies (movies_id, movies_thumb, movies_fimg, movies_bimg, movies_title, movies_year, movies_storyline, movies_runtime, movies_trailer, movies_price) VALUES
-(1, 'TH_Tremors.jpg', 'Tremors.jpg', 'nobImg.jpg', 'Tremors', '1990', 'A small town gradually becomes aware of a strange creature which picks off people one by one. But what is this creature, and where is it? At the same time, a seismologist is working in the area, she detects tremors. The creature lives underground, and can pop up without warning. Trapped in their town, the town-folk have no escape.', '96 min', 'trailer.mp4', '26.99'),
-(2, 'TH_ThePossession.jpg', 'ThePossession.jpg', 'nobImg.jpg', 'The Possession', '2012', 'A young girl buys an antique box at a yard sale, unaware that inside the collectible lives a malicious ancient spirit. The girl''s father teams with his ex-wife to find a way to end the curse upon their child. ', '92 min', 'trailer.mp4', '26.99'),
-(3, 'TH_PetSematary.jpg', 'PetSematary.jpg', 'nobImg.jpg', 'Pet Sematary', '1989', 'The Creeds have just moved to a new house in the countryside. Their house is perfect, except for two things: the semi-trailers that roar past on the narrow road, and the mysterious cemetary in the woods behind the house. The Creed''s neighbours are reluctant to talk about the cemetary, and for good reason too.', '103 min', 'trailer.mp4', '22.99'),
-(4, 'TH_LastExorcism.jpg', 'LastExorcism.jpg', 'nobImg.jpg', 'Last Exorcism', '2010', 'In Baton Rouge, Louisiana, the evangelical Reverend Cotton Marcus was raised by his father to be a preacher. He agrees that the filmmaker Iris Reisen and the cameraman Daniel Moskowitz make a documentary about his life. Cotton tells that when his wife Shanna Marcus had troubles in the delivery of their son Justin, he prioritized the doctor help to God and since then he questions his faith. Further, he tells that exorcisms are frauds but the results are good for the believers because they believe it is true. When Cotton is summoned by the farmer Louis Sweetzer to perform an exorcism in his daughter Nell, Cotton sees the chance to prove to the documentary crew what he has just told. They head to Ivanwood and they have a hostile reception from Louis''s son Caleb. Cotton performs the exorcism in Nell, exposing his tricks to the camera, but sooner they learn that the dysfunctional Sweetzer family has serious problems.', '87 min', 'trailer.mp4', '28.99'),
-(5, 'TH_HouseAtTheEndOfTheStreet.jpg', 'HouseAtTheEndOfTheStreet.jpg', 'nobImg.jpg', 'House At The End Of The Street', '2012', 'Newly divorced Sarah and her daughter Elissa find the house of their dreams in a small, upscale, rural town. But when startling and unexplainable events begin to happen, Sarah and Elissa learn the town is in the shadows of a chilling secret.', '101 min', 'trailer.mp4', '26.99'),
-(6, 'TH_Halloween2.jpg', 'Halloween2.jpg', 'nobImg.jpg', 'Halloween 2', '1981', 'It''s the same night as the original Halloween. Michael Myers is around the neighborhood, after being gunned by Dr.Loomis six times. Now, he''s in a hospital where the girl Laurie Strode was taken. And there''s a reason why Michael is after her', '92 min', 'trailer.mp4', '19.99'),
-(7, 'TH_ArmyOfDarkness.jpg', 'ArmyOfDarkness.jpg', 'nobImg.jpg', 'Army Of Darkness', '1992', 'In this sequel to the Evil Dead films, a discount-store employee ("Name''s Ash. Housewares.") is time-warped to a medieval castle beset by monstrous forces. Initially mistaken for an enemy, he is soon revealed as the prophecised savior who can quest for the Necronomicon, a book which can dispel the evil. Unfortunately, he screws up the magic words while collecting the tome, and releases an army of skeletons, led by his own Deadite counterpart. What follows is a thrilling, yet tongue-in-cheek battle between Ash''s 20th Century tactics and the minions of darkness.', '81 min', 'trailer.mp4', '6.99'),
-(8, 'TH_CloudyWithAChanceOfMeatballs.jpg', 'CloudyWithAChanceOfMeatballs.jpg', 'nobImg.jpg', 'Cloudy With A Chance Of Meatballs', '2009', 'Flint Lockwood thinks he''s a genius. But none of the things he invented are things that make sense or are useful. However, he has the support of his mother but when she dies, he''s left alone with his father who thinks he should give it up. When the community that he lives in, is in an economic crisis because their primary source of income a sardine cannery was shut down, Flint decides to try his latest invention, a machine that can turn water into food. But something goes wrong and the machine ends up in the atmosphere. Later it starts raining food. The shifty mayor tries to use this as a way to help their community, but when Flint senses something wrong with the machine, the mayor convinces him to ignore it. However, as Flint predicts, chaos ensues.', '90 min', 'trailer.mp4', '26.99'),
-(9, 'TH_DespicableMe.jpg', 'DespicableMe.jpg', 'nobImg.jpg', 'Despicable Me', '2009', 'In a happy suburban neighborhood surrounded by white picket fences with flowering rose bushes, sits a black house with a dead lawn. Unbeknownst to the neighbors, hidden beneath this home is a vast secret hideout. Surrounded by a small army of minions, we discover Gru, planning the biggest heist in the history of the world. He is going to steal the moon. (Yes, the moon!) Gru delights in all things wicked. Armed with his arsenal of shrink rays, freeze rays, and battle-ready vehicles for land and air, he vanquishes all who stand in his way. Until the day he encounters the immense will of three little orphaned girls who look at him and see something that no one else has ever seen: a potential Dad. The world''s greatest villain has just met his greatest challenge: three little girls named Margo, Edith and Agnes. ', '95 min', 'trailer.mp4', '26.99'),
-(10, 'TH_Frankenweenie4pk.jpg', 'Frankenweenie4pk.jpg', 'nobImg.jpg', 'Frankenweenie', '2012', 'When young Victor''s pet dog Sparky (who stars in Victor''s home-made monster movies) is hit by a car, Victor decides to bring him back to life the only way he knows how. But when the bolt-necked "monster" wreaks havoc and terror in the hearts of Victor''s neighbors, he has to convince them (and his parents) that despite his appearance, Sparky''s still the good loyal friend he''s always been.', '87 min', 'trailer.mp4', '32.99');
+(1, 'TH_Tremors.jpg', 'Tremors.jpg', 'nobImg.jpg', 'Tremors', '1990', 'A small town gradually becomes aware of a strange creature which picks off people one by one. But what is this creature, and where is it? At the same time, a seismologist is working in the area, she detects tremors. The creature lives underground, and can pop up without warning. Trapped in their town, the town-folk have no escape.', '96 min', 'https://www.youtube.com/watch?v=liJfZvXdiTE', '26.99'),
+(2, 'TH_ThePossession.jpg', 'ThePossession.jpg', 'nobImg.jpg', 'The Possession', '2012', 'A young girl buys an antique box at a yard sale, unaware that inside the collectible lives a malicious ancient spirit. The girl\'s father teams with his ex-wife to find a way to end the curse upon their child. ', '92 min', 'https://www.youtube.com/watch?v=WVjggWQRlQQ', '26.99'),
+(3, 'TH_PetSematary.jpg', 'PetSematary.jpg', 'nobImg.jpg', 'Pet Sematary', '1989', 'The Creeds have just moved to a new house in the countryside. Their house is perfect, except for two things: the semi-trailers that roar past on the narrow road, and the mysterious cemetary in the woods behind the house. The Creed\'s neighbours are reluctant to talk about the cemetary, and for good reason too.', '103 min', 'https://www.youtube.com/watch?v=jpjpUOXQZac', '22.99'),
+(4, 'TH_LastExorcism.jpg', 'LastExorcism.jpg', 'nobImg.jpg', 'Last Exorcism', '2010', 'In Baton Rouge, Louisiana, the evangelical Reverend Cotton Marcus was raised by his father to be a preacher. He agrees that the filmmaker Iris Reisen and the cameraman Daniel Moskowitz make a documentary about his life. Cotton tells that when his wife Shanna Marcus had troubles in the delivery of their son Justin, he prioritized the doctor help to God and since then he questions his faith. Further, he tells that exorcisms are frauds but the results are good for the believers because they believe it is true. When Cotton is summoned by the farmer Louis Sweetzer to perform an exorcism in his daughter Nell, Cotton sees the chance to prove to the documentary crew what he has just told. They head to Ivanwood and they have a hostile reception from Louis\'s son Caleb. Cotton performs the exorcism in Nell, exposing his tricks to the camera, but sooner they learn that the dysfunctional Sweetzer family has serious problems.', '87 min', 'https://www.youtube.com/watch?v=dOxQ7DmBQRg', '28.99'),
+(5, 'TH_HouseAtTheEndOfTheStreet.jpg', 'HouseAtTheEndOfTheStreet.jpg', 'nobImg.jpg', 'House At The End Of The Street', '2012', 'Newly divorced Sarah and her daughter Elissa find the house of their dreams in a small, upscale, rural town. But when startling and unexplainable events begin to happen, Sarah and Elissa learn the town is in the shadows of a chilling secret.', '101 min', 'https://www.youtube.com/watch?v=3Xd2ceHDd-g', '26.99'),
+(6, 'TH_Halloween2.jpg', 'Halloween2.jpg', 'nobImg.jpg', 'Halloween 2', '1981', 'It\'s the same night as the original Halloween. Michael Myers is around the neighborhood, after being gunned by Dr.Loomis six times. Now, he\'s in a hospital where the girl Laurie Strode was taken. And there\'s a reason why Michael is after her', '92 min', 'https://www.youtube.com/watch?v=fSPqbbjc0BE', '19.99'),
+(7, 'TH_ArmyOfDarkness.jpg', 'ArmyOfDarkness.jpg', 'nobImg.jpg', 'Army Of Darkness', '1992', 'In this sequel to the Evil Dead films, a discount-store employee ("Name\'s Ash. Housewares.") is time-warped to a medieval castle beset by monstrous forces. Initially mistaken for an enemy, he is soon revealed as the prophecised savior who can quest for the Necronomicon, a book which can dispel the evil. Unfortunately, he screws up the magic words while collecting the tome, and releases an army of skeletons, led by his own Deadite counterpart. What follows is a thrilling, yet tongue-in-cheek battle between Ash\'s 20th Century tactics and the minions of darkness.', '81 min', 'https://www.youtube.com/watch?v=UHZQEtG8xYo', '6.99'),
+(8, 'TH_CloudyWithAChanceOfMeatballs.jpg', 'CloudyWithAChanceOfMeatballs.jpg', 'nobImg.jpg', 'Cloudy With A Chance Of Meatballs', '2009', 'Flint Lockwood thinks he\'s a genius. But none of the things he invented are things that make sense or are useful. However, he has the support of his mother but when she dies, he\'s left alone with his father who thinks he should give it up. When the community that he lives in, is in an economic crisis because their primary source of income a sardine cannery was shut down, Flint decides to try his latest invention, a machine that can turn water into food. But something goes wrong and the machine ends up in the atmosphere. Later it starts raining food. The shifty mayor tries to use this as a way to help their community, but when Flint senses something wrong with the machine, the mayor convinces him to ignore it. However, as Flint predicts, chaos ensues.', '90 min', 'https://www.youtube.com/watch?v=pUaKcFI4BZY', '26.99'),
+(9, 'TH_DespicableMe.jpg', 'DespicableMe.jpg', 'nobImg.jpg', 'Despicable Me', '2009', 'In a happy suburban neighborhood surrounded by white picket fences with flowering rose bushes, sits a black house with a dead lawn. Unbeknownst to the neighbors, hidden beneath this home is a vast secret hideout. Surrounded by a small army of minions, we discover Gru, planning the biggest heist in the history of the world. He is going to steal the moon. (Yes, the moon!) Gru delights in all things wicked. Armed with his arsenal of shrink rays, freeze rays, and battle-ready vehicles for land and air, he vanquishes all who stand in his way. Until the day he encounters the immense will of three little orphaned girls who look at him and see something that no one else has ever seen: a potential Dad. The world\'s greatest villain has just met his greatest challenge: three little girls named Margo, Edith and Agnes. ', '95 min', 'https://www.youtube.com/watch?v=sUkZFetWYY0', '26.99'),
+(10, 'TH_Frankenweenie4pk.jpg', 'Frankenweenie4pk.jpg', 'nobImg.jpg', 'Frankenweenie', '2012', 'When young Victor\'s pet dog Sparky (who stars in Victor\'s home-made monster movies) is hit by a car, Victor decides to bring him back to life the only way he knows how. But when the bolt-necked "monster" wreaks havoc and terror in the hearts of Victor\'s neighbors, he has to convince them (and his parents) that despite his appearance, Sparky\'s still the good loyal friend he\'s always been.', '87 min', 'https://www.youtube.com/watch?v=XBfcGLBJ2Uc', '32.99');
 
 -- --------------------------------------------------------
 
@@ -367,7 +367,7 @@ INSERT INTO tbl_movies (movies_id, movies_thumb, movies_fimg, movies_bimg, movie
 --
 
 CREATE TABLE tbl_rating (
-  rating_id smallint(4) unsigned NOT NULL,
+  rating_id smallint(4) UNSIGNED NOT NULL,
   rating_name varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -389,7 +389,7 @@ INSERT INTO tbl_rating (rating_id, rating_name) VALUES
 --
 
 CREATE TABLE tbl_studio (
-  studio_id smallint(4) unsigned NOT NULL,
+  studio_id smallint(4) UNSIGNED NOT NULL,
   studio_name varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -425,7 +425,7 @@ INSERT INTO tbl_studio (studio_id, studio_name) VALUES
 --
 
 CREATE TABLE tbl_type (
-  type_id smallint(4) unsigned NOT NULL,
+  type_id smallint(4) UNSIGNED NOT NULL,
   type_name varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -504,47 +504,47 @@ ALTER TABLE tbl_type
 -- AUTO_INCREMENT for table tbl_cast
 --
 ALTER TABLE tbl_cast
-  MODIFY cast_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY cast_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_cat
 --
 ALTER TABLE tbl_cat
-  MODIFY cat_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY cat_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_director
 --
 ALTER TABLE tbl_director
-  MODIFY dir_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY dir_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_l_mc
 --
 ALTER TABLE tbl_l_mc
-  MODIFY mc_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY mc_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_l_md
 --
 ALTER TABLE tbl_l_md
-  MODIFY md_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY md_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_movies
 --
 ALTER TABLE tbl_movies
-  MODIFY movies_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY movies_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_rating
 --
 ALTER TABLE tbl_rating
-  MODIFY rating_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY rating_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_studio
 --
 ALTER TABLE tbl_studio
-  MODIFY studio_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY studio_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_type
 --
 ALTER TABLE tbl_type
-  MODIFY type_id smallint(4) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY type_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
