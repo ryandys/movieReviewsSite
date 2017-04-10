@@ -5,19 +5,8 @@
 	
 	require_once('admin/phpscripts/init.php');
 
-	if(isset($_GET['filter'])) {
-		$tbl1 = "tbl_movies";
-		$tbl2 = "tbl_cat";
-		$tbl3 = "tbl_l_mc";
-		$col1 = "movies_id";
-		$col2 = "cat_id";
-		$col3 = "cat_name";
-		$filter = $_GET['filter'];
-		$getMovies = filterType($tbl1, $tbl2, $tbl3, $col1, $col2, $col3, $filter);
-	}else{
-		$tbl = "tbl_movies";
-		$getMovies = getAll($tbl);
-	}
+	$tbl_movies = "tbl_movies";
+    $getMovies = getAll($tbl_movies);
 	
 ?>
 
@@ -73,11 +62,11 @@
 		<div class="small-12 medium-10 columns">
 
 			<ul class="filterNav">
-				<li><a href="index.php?filter=action">Action</a></li>
-				<li><a href="index.php?filter=comedy">Comedy</a></li>
-				<li><a href="index.php?filter=family">Family</a></li>
-				<li><a href="index.php?filter=horror">Horror</a></li>
-				<li><a href="index.php">All</a></li>
+				<li><a>Action</a></li>
+				<li><a>Comedy</a></li>
+				<li><a>Family</a></li>
+				<li><a>Horror</a></li>
+				<li><a>All</a></li>
 			</ul>
 
 			<div class="small-12 columns">
