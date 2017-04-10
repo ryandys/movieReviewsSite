@@ -65,7 +65,8 @@
 
 		</div>
 
-		<div class="small-12 columns">
+		<div class="small-12 columns" id="vidCon">
+			
 			<div id="videoContainer"><!--start videoContainer div-->
 				<div class="flex-video vimeo widescreen"><!--start flex-video div-->
 					<video controls>
@@ -84,7 +85,9 @@
 					<img src="images/full_screen.svg" id="fullScreen" alt="Toggle Full Screen">
 				</div><!--end controls-->
 			</div><!--end videoContainer div-->
+
 		</div>
+
 	</div>
 
 	<!-- CLOSE PAGE CONTENT -->

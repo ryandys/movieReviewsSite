@@ -128,6 +128,10 @@
 	border-bottom: 2px solid #6d2675;
 }
 
+#vidCon {
+	margin-top: 60px;
+}
+
 /*-----Video Player-----*/
 .flex-video
 {
@@ -215,7 +219,7 @@ input[type=range]::-webkit-slider-thumb
 	border: none;
 	height: 20px;
 	width: 10px;
-	background-color: #B50000;
+	background-color: #6d2675;
 }
 
 input[type=range]:focus
