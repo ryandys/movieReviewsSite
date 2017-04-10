@@ -2,36 +2,36 @@ $(document).foundation();
 (function() {
 	"use strict";
 
-//var thumbnailCon = document.querySelector("#thumbnailCon");
-//var thumbnails = document.querySelectorAll('#movieThumbCon a');
-//console.log(thumbnails.length);
+var videoContainer = document.querySelector("#videoContainer");
+var video = document.querySelector("#vidPlayer");
+var theControls = document.querySelector("#controls");
+var pausePlayButton = document.querySelector("#pausePlay");
+var seekBar = document.querySelector("#seekBar");
+var muteButton = document.querySelector("#muteButton");
+var volumeBar = document.querySelector("#volumeBar");
+var fullScreenButton = document.querySelector("#fullScreen");
 
 var currentVid = 1;
-	
-$('.movieThumbCon p a').on('click', function() {
-		currentVid = this.id;
-		//console.log(this.id);
-
-	$.getJSON('admin/ajaxQuery.php', {movies_id : currentVid}, function(data) {
-		console.log(data);
-
-		$('#vidPlayer').attr('src',"videos/" + data.movies_trailer);
-	});
-});
-
-var videoContainer = document.querySelector("#videoContainer"),
-	video = document.querySelector("video"),
-	theControls = document.querySelector("#controls"),
-	pausePlayButton = document.querySelector("#pausePlay"),
-	seekBar = document.querySelector("#seekBar"),
-	muteButton = document.querySelector("#muteButton"),
-	volumeBar = document.querySelector("#volumeBar"),
-	fullScreenButton = document.querySelector("#fullScreen");
 
 video.controls = false;
 theControls.classList.remove("hidden");
 
-/*-----Pause/Play Button-----*/
+/*-----JSON-----*/
+$('.movieThumbCon').on('click', function() {
+		currentVid = this.id;
+		//console.log(this.id);
+
+	$.getJSON('admin/ajaxQuery.php', {movies_id : currentVid}, function(data) {
+		//console.log(data);
+
+		video.src = "videos/" + data.movies_trailer;
+		video.load();
+		video.play();
+		pausePlayButton.src = "images/pause.svg";
+	});
+});
+
+/*-----Pause/Play-----*/
 function pausePlay() {
 	if (video.paused) {
 		video.play();
@@ -40,9 +40,6 @@ function pausePlay() {
 		video.pause();
 		pausePlayButton.src = "images/play.svg";
 	}
-}
-function switchImg() {
-	pausePlayButton.src = "images/play.svg";
 }
 
 /*-----Seek Bar-----*/	
@@ -54,17 +51,9 @@ function updateTime() {
 	var value = (100 / video.duration) * video.currentTime;
 	seekBar.value = value;
 }
-function mouseDown() {
-	video.pause();
-	pausePlayButton.src = "images/play.svg";
-}
-function mouseUp() {
-	video.play();
-	pausePlayButton.src = "images/pause.svg";
-}
 	
 
-/*-----Mute Button-----*/	
+/*-----Mute-----*/	
 function vidMute() {
 	if (video.muted) {
 		video.muted = false;
@@ -75,12 +64,12 @@ function vidMute() {
 	}
 }
 
-/*-----Volume Slider-----*/	
+/*-----Volume-----*/	
 function volume() {
   video.volume = volumeBar.value;
 }
 
-/*-----Full Screen Button-----*/
+/*-----Full Screen-----*/
 function fullScreen() {
 	if (video.requestFullscreen) {
 		video.requestFullscreen();
@@ -98,7 +87,5 @@ fullScreenButton.addEventListener("click", fullScreen, false);
 volumeBar.addEventListener("change", volume, false);
 seekBar.addEventListener("change", seek, false);
 video.addEventListener("timeupdate", updateTime, false);
-seekBar.addEventListener("mousedown", mouseDown, false);
-seekBar.addEventListener("mouseup", mouseUp, false);
 
 })();
