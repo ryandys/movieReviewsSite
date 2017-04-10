@@ -2,20 +2,20 @@ $(document).foundation();
 (function() {
 	"use strict";
 
-var thumbnailCon = document.querySelector("#thumbnailCon");
-var thumbnails = document.querySelectorAll('#thumbnailCon img');
+//var thumbnailCon = document.querySelector("#thumbnailCon");
+//var thumbnails = document.querySelectorAll('#movieThumbCon a');
 //console.log(thumbnails.length);
+
+var currentVid = 1;
 	
-$('#thumbnailCon img').on('click', function() {
+$('.movieThumbCon p a').on('click', function() {
 		currentVid = this.id;
+		//console.log(this.id);
 
-	$.getJSON('admin/ajaxQuery.php', {gallery_id : currentVid}, function(data) {
-		//console.log(data);
+	$.getJSON('admin/ajaxQuery.php', {movies_id : currentVid}, function(data) {
+		console.log(data);
 
-		$('#mainImg img').attr('src',"images/uploads/" + data.gallery_img);
-		$('#thumbnailCon div').addClass('nonActive');
-		$('#'+data.gallery_id).parent().removeClass('nonActive');
-
+		$('#vidPlayer').attr('src',"videos/" + data.movies_trailer);
 	});
 });
 
