@@ -70,9 +70,10 @@
 			<div id="videoContainer"><!--start videoContainer div-->
 				<div class="flex-video vimeo widescreen"><!--start flex-video div-->
 					<video controls>
-						<source src="videos/teaser_trailer_1.mp4" type="video/mp4"/>
-					    <source src="videos/teaser_trailer_1.webm" type="video/webm"/>
-					    <source src="videos/teaser_trailer_1.ogg" type="video/ogv"/>
+						<source src="videos/tremors.mp4" type="video/mp4"/>
+					    <!-- omitted webm to save space -->
+					    <!-- omitted ogv to save space -->
+					    Your browser does not support HTML5 video.
 					</video>
 				</div><!--end flex-video div-->
 
