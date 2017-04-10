@@ -66,7 +66,23 @@
 		</div>
 
 		<div class="small-12 columns">
+			<div id="videoContainer"><!--start videoContainer div-->
+				<div class="flex-video vimeo widescreen"><!--start flex-video div-->
+					<video controls>
+						<source src="videos/teaser_trailer_1.mp4" type="video/mp4"/>
+					    <source src="videos/teaser_trailer_1.webm" type="video/webm"/>
+					    <source src="videos/teaser_trailer_1.ogg" type="video/ogv"/>
+					</video>
+				</div><!--end flex-video div-->
 
+				<div id="controls"><!--start controls-->
+					<img src="images/play.svg" id="pausePlay" alt="Pause/Play">
+					<input type="range" id="seekBar" value="0">
+					<img src="images/mute.svg" id="muteButton" alt="Toggle Mute">
+					<input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1">
+					<img src="images/full_screen.svg" id="fullScreen" alt="Toggle Full Screen">
+				</div><!--end controls-->
+			</div><!--end videoContainer div-->
 		</div>
 	</div>
 
