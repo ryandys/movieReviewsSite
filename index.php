@@ -28,7 +28,7 @@
 	<!-- start off canvas -->
 	<div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-      <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+      <div class="off-canvas position-left reveal-for-large" id="offCanvas" data-off-canvas>
 
         <!-- Close button -->
         <button id="closeButtonColor" class="close-button" aria-label="Close menu" type="button" data-close>

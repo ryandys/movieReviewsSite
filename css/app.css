@@ -49,6 +49,11 @@
 	padding-top: 20px;
 }
 
+.movieThumbCon:hover {
+	cursor: pointer;
+	background-color: #f4f4f4;
+}
+
 .movieThumbCon:first-child
 {
 	border-top: none;
