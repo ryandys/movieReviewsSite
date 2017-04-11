@@ -24,7 +24,6 @@
 </head>
 <body>
 
-
 	<!-- start off canvas -->
 	<div class="off-canvas-wrapper">
     <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
@@ -36,11 +35,10 @@
         </button>
 
         <?php
-		include('layout/sideBar.php');
+			include('layout/sideBar.php');
 		?>
 
        </div>
-
     </div>
 
     <div class="off-canvas-content" data-off-canvas-content>
@@ -71,10 +69,9 @@
 
 			<div class="small-12 columns">
 				<form>
-	  				<input id="searchBar" type="text" name="search" placeholder="Search...">
+	  				<input id="searchBar" type="search" name="search" placeholder="Search...">
 				</form>
 			</div>
-
 		</div>
 
 		<div class="small-12 columns" id="vidCon">
@@ -92,14 +89,12 @@
 				<div id="controls"><!--start controls-->
 					<img src="images/play.svg" id="pausePlay" alt="Pause/Play">
 					<input type="range" id="seekBar" value="0">
-					<img src="images/mute.svg" id="muteButton" alt="Toggle Mute">
+					<img src="images/unmute.svg" id="muteButton" alt="Toggle Mute">
 					<input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1">
 					<img src="images/full_screen.svg" id="fullScreen" alt="Toggle Full Screen">
 				</div><!--end controls-->
 			</div><!--end videoContainer div-->
-
 		</div>
-
 	</div>
 
 	<!-- CLOSE PAGE CONTENT -->

@@ -57,10 +57,10 @@ function updateTime() {
 function vidMute() {
 	if (video.muted) {
 		video.muted = false;
-		muteButton.src = "images/mute.svg";
+		muteButton.src = "images/unmute.svg";
 	}else{
 		video.muted = true;
-		muteButton.src = "images/unmute.svg";
+		muteButton.src = "images/mute.svg";
 	}
 }
 
