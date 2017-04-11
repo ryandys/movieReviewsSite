@@ -9,14 +9,13 @@
 }
 
 #searchBar {
-    width: 300px;
+    width: 200px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 1em;
-    background-color: white;
     padding: 12px 20px;
     box-shadow: none;
-    background-color: #e9e9e9;
+    background-color: #e7e7e7;
     margin: 0 auto;
 }
 
@@ -28,6 +27,13 @@
 	height: 100vh;
 	overflow-y: scroll;
 	padding: 20px;
+}
+
+#sideBar h2 {
+	font-family: 'Overpass',Arial, Times, Serif;
+	font-size: 1.75em;
+	font-weight: 700;
+	text-align: center;
 }
 
 .position-left.is-transition-push::after {
@@ -49,6 +55,11 @@
 	padding-top: 20px;
 }
 
+.movieThumbCon:hover {
+	cursor: pointer;
+	background-color: #f4f4f4;
+}
+
 .movieThumbCon:first-child
 {
 	border-top: none;
@@ -64,7 +75,7 @@
 }
 
 .movieThumbCon a {
-	color: #000;
+	color: #333;
 	transition: .3s ease-in-out all;
 }
 
@@ -115,12 +126,12 @@
 }
 
 .filterNav li a {
-	color: #000;
+	color: #333;
 	margin-right: 20px;
 	font-family: 'Overpass', Arial, Times, Serif;
-	font-size: 1.25em;
+	font-size: 1em;
 	font-weight: 400;
-	transition: .3s ease-in-out all;
+	transition: .2s ease-in-out all;
 }
 
 .filterNav li a:hover {
