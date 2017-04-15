@@ -169,15 +169,12 @@ video
 	max-width: 745px;
 	max-height: 50px;
 	overflow: hidden;
-}
-
-#pausePlay {
-	margin-left: 15px;
+	padding-left: 0px;
 }
 
 #pausePlay, #muteButton, #fullScreen
 {
-	width: 30px;
+	width: 5%;
 	margin-bottom: 8px;
 }
 
@@ -264,6 +261,11 @@ input[type=range]::-webkit-slider-thumb:hover
 
 	.filterNav {
 		float: right;
+	}
+
+	#controls
+	{
+		padding-left: 10px;
 	}
 
 }
