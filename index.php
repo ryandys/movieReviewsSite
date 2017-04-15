@@ -1,12 +1,21 @@
 <?php
 	
-	//ini_set('display_errors',1);
-    //error_reporting(E_ALL);
+	ini_set('display_errors',1);
+    error_reporting(E_ALL);
 	
 	require_once('admin/phpscripts/init.php');
+	
+	if(isset($_POST['submit'])) {
+		$commentTitle = $_POST['comment_title'];
+		$commentContent = $_POST['comment_content'];
+		$commentUser = $_POST['comment_user'];
+		
+		$uploadComment = addComment($commentTitle,$commentContent, $commentUser);
+		$message = $uploadComment;
+	}
 
-	$tbl_movies = "tbl_movies";
-    $getMovies = getAll($tbl_movies);
+	$tbl_comments = "tbl_comments";
+	$getComments = getAllComments($tbl_comments);
 
     if(isset($_GET['filter'])) {
 		$tbl1 = "tbl_movies";
@@ -109,6 +118,37 @@
 				</div><!--end controls-->
 			</div><!--end videoContainer div-->
 		</div>
+
+
+		<?php if(!empty($message)){echo $message;} ?>
+			<form action="index.php" method="post" enctype="multipart/form-data">
+				<input class="" type="text" name="comment_title" value="" placeholder="Title">
+				<input class="" type="text" name="comment_user" value="" placeholder="Name">
+				<input class="" type="text" name="comment_content" value="" placeholder="Message">
+				<input type="submit" name="submit" value="Post" id="addEditSubmit">
+			</form>
+
+
+		<?php
+			if(!is_string($getComments)){
+				while($row = mysqli_fetch_array($getComments)){
+					echo "<div class=\"newsWrapper\">";
+					echo "<div class=\"row\">";
+
+						echo "<div class=\"small-12 columns\">";
+						echo "<h2>{$row['comment_title']}</h2>";
+						echo "<p>{$row['comment_content']}</p>";
+						echo "<p>{$row['comment_user']}</p>";
+						echo "</div>";
+						echo "</div>";
+						echo "</div>";
+				}
+			}else{
+				echo "<p>{$getComments}</p>";
+			}
+		?>
+
+
 	</div>
 
 	<!-- CLOSE PAGE CONTENT -->
