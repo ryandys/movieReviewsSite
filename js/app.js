@@ -19,15 +19,14 @@ theControls.classList.remove("hidden");
 /*-----JSON-----*/
 $('.movieThumbCon').on('click', function() {
 		currentVid = this.id;
-		//console.log(this.id);
 
 	$.getJSON('admin/ajaxQuery.php', {movies_id : currentVid}, function(data) {
 		//console.log(data);
 
 		video.src = "videos/" + data.movies_trailer;
 		video.load();
-		video.play();
-		pausePlayButton.src = "images/pause.svg";
+		pausePlayButton.src = "images/play.svg";
+		seekBar.value = 0;
 	});
 });
 
