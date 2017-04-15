@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 10, 2017 at 07:24 PM
+-- Generation Time: Apr 15, 2017 at 06:08 PM
 -- Server version: 5.6.28
 -- PHP Version: 7.0.10
 
@@ -225,6 +225,28 @@ INSERT INTO tbl_cat (cat_id, cat_name, cat_desc) VALUES
 (2, 'comedy', 'Think of Eddie Murphy'),
 (3, 'family', 'Think of Disney'),
 (4, 'horror', 'Think of Borat in a bikini');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table tbl_comments
+--
+
+CREATE TABLE tbl_comments (
+  comment_id tinyint(3) UNSIGNED NOT NULL,
+  comment_title varchar(50) NOT NULL,
+  comment_content text NOT NULL,
+  comment_user varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table tbl_comments
+--
+
+INSERT INTO tbl_comments (comment_id, comment_title, comment_content, comment_user) VALUES
+(1, 'Frankenweenie - 10/10', 'This is the best movie I\'ve seen in years!', 'Jordan'),
+(2, 'Despicable Me - 1/10', 'This movie was terrible. I could have been mowing the lawn or watching paint dry, but instead I watched this film and I regret every moment of it.', 'Ryan'),
+(9, 'Tremors - 8/10', 'LOL THIS MOVIE WAS OKAY', 'Kenneth');
 
 -- --------------------------------------------------------
 
@@ -455,6 +477,12 @@ ALTER TABLE tbl_cat
   ADD PRIMARY KEY (cat_id);
 
 --
+-- Indexes for table tbl_comments
+--
+ALTER TABLE tbl_comments
+  ADD PRIMARY KEY (comment_id);
+
+--
 -- Indexes for table tbl_director
 --
 ALTER TABLE tbl_director
@@ -510,6 +538,11 @@ ALTER TABLE tbl_cast
 --
 ALTER TABLE tbl_cat
   MODIFY cat_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table tbl_comments
+--
+ALTER TABLE tbl_comments
+  MODIFY comment_id tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table tbl_director
 --
